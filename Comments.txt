@@ -1,0 +1,5 @@
+//Google chrome F12 Consol alert ('Javascript!')
+ //Google chrome F12 Consol document.write('Расписание курса Javascript');
+ //Google chrome F12 Consol console.log('Расписание курса Javascript');
+
+ 
