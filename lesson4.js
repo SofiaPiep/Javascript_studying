@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /*Homework 4_Fall_2024
 Материал к прочтению:
 https://www.w3schools.com/js/js_loop_forin.asp
