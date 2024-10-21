@@ -140,7 +140,7 @@ Kata from review:
 https://www.codewars.com/kata/570a6a46455d08ff8d001002/
 https://www.codewars.com/kata/57f24e6a18e9fad8eb000296
 https://www.codewars.com/kata/5808e2006b65bff35500008f*/
-=======
+
 /*Homework 4_Fall_2024
 Материал к прочтению:
 https://www.w3schools.com/js/js_loop_forin.asp
