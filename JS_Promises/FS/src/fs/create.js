@@ -1,3 +1,6 @@
+/*- `create.js` - implement function that creates new file `fresh.txt` with content `I am fresh and young` 
+inside of the `files` folder (if file already exists `Error` with message `FS operation failed` must be thrown)*/
+
 import { promises as fs /* переименовываем свойство promises в fs*/ } from 'fs';  // import * as fs from 'fs'; fs.promises.writeFile('file.txt', 'Hello, world!');
 
 import path from 'path';  //модуль для работы с путями
@@ -6,7 +9,7 @@ const create = async () => {
     const dirPath = path.join(process.cwd(), 'files');  /* путь к директории 'files'; 
     path.join():
     Используется для объединения нескольких частей пути 
-    в один корректный путь, совместимый с любой операционной системой.
+    в один корректный путь, совместимый с любой операционной системой. 
     process.cwd(): Это встроенная функция Node.js, 
     которая возвращает текущую рабочую директорию, в которой выполняется скрипт. 
     'files': Это имя папки, которую мы добавляем к пути. 
@@ -38,7 +41,7 @@ const create = async () => {
         if (error.code === 'ENOENT') {
             /*ENOENT: код ошибки, "Error NO ENTry" (ошибка: нет входа, "No such file or directory"). 
             Означает, что файл или директория, к которой нужно получить доступ, не существует.*/
-            // Если файл не найден, создаем его
+            // Если файл не найден, создаем его + есть комманда fs.readFile (https://my-js.org/docs/cheatsheet/fs/)
             await fs.writeFile(filePath, content, 'utf8');
             console.log('Файл успешно создан');
         } else {
