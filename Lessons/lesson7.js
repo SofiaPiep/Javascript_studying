@@ -45,23 +45,81 @@ and return a string like this:
 
 function animal(obj) {
   return `This ${obj.color} ${obj.name} has ${obj.legs} legs.`;
-};
-animal({name:"dog", legs:4, color:"white"})
+}
+console.log(animal({ name: "dog", legs: 4, color: "white" }));
 
 /*3 -  https://www.codewars.com/kata/527b3cd0492b6b15250060af
 You are trying to put a hash in ruby or an object in javascript or java into an array, 
-but it always returns error, solve it and keep it as simple as possible!
+but it always returns error, solve it and keep it as simple as possible!*/
 
+let items = [];
+items.push({ a: "b", c: "d" });
 
- 
-4 -  https://www.codewars.com/kata/521cd52e790405a74800032c
- 
-5 -  https://www.codewars.com/kata/56a29b237e9e997ff2000048
+/*4 -  https://www.codewars.com/kata/521cd52e790405a74800032c
+We have implemented a function wrap(value) that takes a value of arbitrary type 
+and wraps it in a new JavaScript Object or Python Dict setting the 'value' key 
+on the new Object or Dict to the passed-in value.
 
-6 -  https://www.codewars.com/kata/56d8ae9237123036d3001b54
+So, for example, if we execute the following code:
 
-7 - https://www.codewars.com/kata/5722b3f0bd5583cf44001000
- 
+wrapper_obj = wrap("my_wrapped_string"); 
+ # wrapper_obj should be  {"value":"my_wrapped_string"}
+We would then expect the following statement to be true:
+
+wrapper_obj["value"] == "my_wrapped_string"
+Unfortunately, the code is not working as designed. 
+Please fix the code so that it behaves as specified.*/
+
+function wrap(value) {
+  return { value: value };
+}
+
+/*5 -  https://www.codewars.com/kata/56a29b237e9e997ff2000048
+You are creating an "Escape the room" game. The first step is 
+to create a hash table called rooms that contains all of the rooms of the game. 
+There should be at least 3 rooms inside it, 
+each being a hash table with at least three properties (e.g. name, description, completed).*/
+
+var rooms = {
+  kitchen: {
+    name: "Kitchen",
+    description: "A dimly lit kitchen with pots scattered around.",
+    completed: false,
+  },
+  library: {
+    name: "Library",
+    description: "A quiet library filled with old, dusty books.",
+    completed: false,
+  },
+  basement: {
+    name: "Basement",
+    description: "A dark, creepy basement with a strange smell.",
+    completed: false,
+  },
+};
+
+/*6 -  https://www.codewars.com/kata/56d8ae9237123036d3001b54
+While making a zork-type game, you create an object of rooms. 
+Unfortunately, the game is not working. 
+Find all of the errors in the rooms object to get your game working again.*/
+var rooms = {
+  first: {
+    description: "This is the first room",
+    items: {
+      chair: "The old chair looks comfortable",
+      lamp: "This lamp looks ancient",
+    },
+  },
+  second: {
+    description: "This is the second room",
+    items: {
+      couch: "This couch looks like it would hurt your back",
+      table: "On the table there is an unopened bottle of water",
+    },
+  },
+};
+
+/*7 - https://www.codewars.com/kata/5722b3f0bd5583cf44001000
 
 // ===========     Middle
 8 - https://www.codewars.com/kata/57ced2c1c6fdc22123000316
