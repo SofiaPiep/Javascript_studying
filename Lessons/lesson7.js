@@ -45,9 +45,14 @@ and return a string like this:
 
 function animal(obj) {
   return `This ${obj.color} ${obj.name} has ${obj.legs} legs.`;
-}
+};
+animal({name:"dog", legs:4, color:"white"})
 
 /*3 -  https://www.codewars.com/kata/527b3cd0492b6b15250060af
+You are trying to put a hash in ruby or an object in javascript or java into an array, 
+but it always returns error, solve it and keep it as simple as possible!
+
+
  
 4 -  https://www.codewars.com/kata/521cd52e790405a74800032c
  
