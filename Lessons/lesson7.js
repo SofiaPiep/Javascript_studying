@@ -211,10 +211,67 @@ function giveMeFive(obj) {
 
 // ===========     Middle
 /*8 - https://www.codewars.com/kata/57ced2c1c6fdc22123000316
+You will be given an array of numbers.
+
+For each number in the array you will need to create an object.
+
+The object key will be the number, as a string. The value will be the corresponding character code, as a string.
+
+Return an array of the resulting objects.
+
+All inputs will be arrays of numbers. All character codes are valid lower case letters. The input array will not be empty.*/
+
+function numObj(s) {
+  return s.map(num => {
+      // Convert number to character code
+      let charCode = String.fromCharCode(num);
+      // Create an object with the number as a string key and character code as the value
+      return { [String(num)]: charCode };
+  });
+}
+
+// Example usage:
+const inputArray = [97, 98, 99]; // Corresponding to 'a', 'b', 'c'
+const result = numObj(inputArray);
+console.log(result); // Output: [ { '97': 'a' }, { '98': 'b' }, { '99': 'c' } ]
+
  
-9 - https://www.codewars.com/kata/5827acd5f524dd029d0005a4
+/*9 - https://www.codewars.com/kata/5827acd5f524dd029d0005a4
+You will be given an array of objects (associative arrays in PHP) representing data about developers who have signed up to attend the next coding meetup that you are organising.
+
+Your task is to return:
+
+true if at least one Ruby developer has signed up; or
+false if there will be no Ruby developers.
+For example, given the following input array:
+
+var list1 = [
+  { firstName: 'Emma', lastName: 'Z.', country: 'Netherlands', continent: 'Europe', age: 29, language: 'Ruby' },
+  { firstName: 'Piotr', lastName: 'B.', country: 'Poland', continent: 'Europe', age: 128, language: 'Javascript' },
+  { firstName: 'Jayden', lastName: 'P.', country: 'Jamaica', continent: 'Americas', age: 42, language: 'JavaScript' }
+];
+your function should return true.
+
+Notes:
+
+The input array will always be valid and formatted as in the example above.*/
+
+function isRubyComing(list) {
+    // Use the some method to check if any developer's language is Ruby
+    return list.some(developer => developer.language === 'Ruby');
+}
+
+// Example usage:
+var list1 = [
+  { firstName: 'Emma', lastName: 'Z.', country: 'Netherlands', continent: 'Europe', age: 29, language: 'Ruby' },
+  { firstName: 'Piotr', lastName: 'B.', country: 'Poland', continent: 'Europe', age: 128, language: 'Javascript' },
+  { firstName: 'Jayden', lastName: 'P.', country: 'Jamaica', continent: 'Americas', age: 42, language: 'JavaScript' }
+];
+
+console.log(isRubyComing(list1)); // Output: true
+
  
- 10 - https://www.codewars.com/kata/58279e13c983ca4a2a00002a
+ /*10 - https://www.codewars.com/kata/58279e13c983ca4a2a00002a
 
 
  12 - https://www.codewars.com/kata/57d001b405c186ccb6000304
