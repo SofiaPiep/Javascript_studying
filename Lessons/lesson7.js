@@ -272,11 +272,109 @@ console.log(isRubyComing(list1)); // Output: true
 
  
  /*10 - https://www.codewars.com/kata/58279e13c983ca4a2a00002a
+ You will be given an array of objects (associative arrays in PHP, tables in COBOL) representing data about developers who have signed up to attend the next coding meetup that you are organising.
+
+Your task is to return an array where each object will have a new property 'greeting' with the following string value:
+
+Hi < firstName here >, what do you like the most about < language here >?
+
+For example, given the following input array:
+
+var list1 = [
+  { firstName: 'Sofia', lastName: 'I.', country: 'Argentina', continent: 'Americas', age: 35, language: 'Java' },
+  { firstName: 'Lukas', lastName: 'X.', country: 'Croatia', continent: 'Europe', age: 35, language: 'Python' },
+  { firstName: 'Madison', lastName: 'U.', country: 'United States', continent: 'Americas', age: 32, language: 'Ruby' } 
+];
+your function should return the following array:
+
+[
+  { firstName: 'Sofia', lastName: 'I.', country: 'Argentina', continent: 'Americas', age: 35, language: 'Java',
+    greeting: 'Hi Sofia, what do you like the most about Java?'
+  },
+  { firstName: 'Lukas', lastName: 'X.', country: 'Croatia', continent: 'Europe', age: 35, language: 'Python',
+    greeting: 'Hi Lukas, what do you like the most about Python?'
+  },
+  { firstName: 'Madison', lastName: 'U.', country: 'United States', continent: 'Americas', age: 32, language: 'Ruby',
+    greeting: 'Hi Madison, what do you like the most about Ruby?'
+  } 
+];
+Notes:
+
+The order of the properties in the objects does not matter (except in COBOL).
+The input array will always be valid and formatted as in the example above.*/
+
+function greetDevelopers(list) {
+  list.forEach(developer => {
+    developer.greeting = `Hi ${developer.firstName}, what do you like the most about ${developer.language}?`;
+  });
+  return list;
+}
+
+// Test case
+var list1 = [
+  { firstName: 'Sofia', lastName: 'I.', country: 'Argentina', continent: 'Americas', age: 35, language: 'Java' },
+  { firstName: 'Lukas', lastName: 'X.', country: 'Croatia', continent: 'Europe', age: 35, language: 'Python' },
+  { firstName: 'Madison', lastName: 'U.', country: 'United States', continent: 'Americas', age: 32, language: 'Ruby' }
+];
+
+console.log(greetDevelopers(list1));
 
 
- 12 - https://www.codewars.com/kata/57d001b405c186ccb6000304
- 
-13 -  https://www.codewars.com/kata/5836dce6966f8d1d43000007
+ /*12 - https://www.codewars.com/kata/57d001b405c186ccb6000304
+ An Ironman Triathlon is one of a series of long-distance triathlon races organized by the World Triathlon Corporaion (WTC). It consists of a 2.4-mile swim, a 112-mile bicycle ride and a marathon (26.2-mile) (run, raced in that order and without a break. It hurts... trust me.
+
+Your task is to take a distance that an athlete is through the race, and return one of the following:
+
+If the distance is zero, return 'Starting Line... Good Luck!'.
+
+If the athlete will be swimming, return an object with 'Swim' as the key, and the remaining race distance as the value.
+
+If the athlete will be riding their bike, return an object with 'Bike' as the key, and the remaining race distance as the value.
+
+If the athlete will be running, and has more than 10 miles to go, return an object with 'Run' as the key, and the remaining race distance as the value.
+
+If the athlete has 10 miles or less to go, return return an object with 'Run' as the key, and 'Nearly there!' as the value.
+
+Finally, if the athlete has completed te distance, return "You're done! Stop running!".
+
+All distance should be calculated to two decimal places.*/
+
+function iTri(distance) {
+  const totalDistance = 2.4 + 112 + 26.2; // Total distance of the Ironman in miles
+  const remainingDistance = (totalDistance - distance).toFixed(2);
+
+  if (distance === 0) {
+    return 'Starting Line... Good Luck!';
+  }
+  else if (distance < 2.4) {
+    return { 'Swim': `${remainingDistance} to go!` };
+  }
+  else if (distance < 2.4 + 112) {
+    return { 'Bike': `${remainingDistance} to go!` };
+  }
+  else if (distance < totalDistance - 10) {
+    return { 'Run': `${remainingDistance} to go!` };
+  }
+  else if (distance <= totalDistance) {
+    return { 'Run': 'Nearly there!' };
+  }
+  else {
+    return "You're done! Stop running!";
+  }
+}
+
+// Test cases
+console.log(iTri(0));                   // Starting Line... Good Luck!
+console.log(iTri(1.5));                 // { Swim: '138.10 to go!' }
+console.log(iTri(2.4));                 // { Bike: '136.00 to go!' }
+console.log(iTri(50));                  // { Bike: '90.60 to go!' }
+console.log(iTri(114.4));               // { Run: '24.20 to go!' }
+console.log(iTri(131));                 // { Run: '10.00 to go!' }
+console.log(iTri(132));                 // { Run: 'Nearly there!' }
+console.log(iTri(140.6));              
+
+
+/*13 -  https://www.codewars.com/kata/5836dce6966f8d1d43000007
   
  14 - https://www.codewars.com/kata/599db0a227ca9f294b0000c8
   
