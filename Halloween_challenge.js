@@ -1,4 +1,4 @@
-// Halloween challange_ https://www.halloween.dev/  midu.dev
+// Halloween challenge_ https://www.halloween.dev/  midu.dev
 
 /*1. During Halloween night 🎃, a witch 🧙‍♀️ is preparing a magical brew. She has a list of potions, each with an associated power, and she wants to combine two of them to achieve a specific total power.
 
@@ -28,10 +28,10 @@ function createMagicPotion(potions, target) {
 
   for (let i = 0; i < potions.length; i++) {
     const currentPotion = potions[i];
-    const complement = target - currentPotion;
+    const compl = target - currentPotion;
 
-    if (seen[complement] !== undefined) {
-      return [seen[complement], i];
+    if (seen[compl] !== undefined) {
+      return [seen[compl], i];
     }
 
     seen[currentPotion] = i;
@@ -146,17 +146,14 @@ function findSafestPath(dream) {
 
   dp[0][0] = dream[0][0];
 
-  // Fill the first row
   for (let j = 1; j < m; j++) {
     dp[0][j] = dp[0][j - 1] + dream[0][j];
   }
 
-  // Fill the first column
   for (let i = 1; i < n; i++) {
     dp[i][0] = dp[i - 1][0] + dream[i][0];
   }
 
-  // Fill the rest of the dp array
   for (let i = 1; i < n; i++) {
     for (let j = 1; j < m; j++) {
       dp[i][j] = Math.min(dp[i - 1][j], dp[i][j - 1]) + dream[i][j];
@@ -270,10 +267,10 @@ escapePyramidHead(room3) // -> null*/
 function escapePyramidHead(room) {
   const n = room.length;
   const directions = [
-    [1, 0], // down
-    [-1, 0], // up
-    [0, 1], // right
-    [0, -1], // left
+    [1, 0], // вниз//down
+    [-1, 0], // вверх//up
+    [0, 1], // вправо//right
+    [0, -1], // влево//left
   ];
 
   let start = null;
