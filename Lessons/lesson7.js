@@ -190,26 +190,25 @@ function showArrayValues(arr){
 Ok, lesson is over, let's do a task with for..in.*/
 
 function giveMeFive(obj) {
-    // Create an empty array to hold keys and values that meet the criteria
-    let result = [];
-  
-    // Use for..in to traverse the object
-    for (let key in obj) {
-      // Check if the length of the key is 5
-      if (key.length === 5) {
-        result.push(key);
-      }
-      
-      // Check if the length of the value is 5
-      if (obj[key].length === 5) {
-        result.push(obj[key]);
-      }
+  // Create an empty array to hold keys and values that meet the criteria
+  let result = [];
+
+  // Use for..in to traverse the object
+  for (let key in obj) {
+    // Check if the length of the key is 5
+    if (key.length === 5) {
+      result.push(key);
     }
-  
-    // Return the resulting array
-    return result;
+
+    // Check if the length of the value is 5
+    if (obj[key].length === 5) {
+      result.push(obj[key]);
+    }
   }
-  
+
+  // Return the resulting array
+  return result;
+}
 
 // ===========     Middle
 /*8 - https://www.codewars.com/kata/57ced2c1c6fdc22123000316
@@ -224,11 +223,11 @@ Return an array of the resulting objects.
 All inputs will be arrays of numbers. All character codes are valid lower case letters. The input array will not be empty.*/
 
 function numObj(s) {
-  return s.map(num => {
-      // Convert number to character code
-      let charCode = String.fromCharCode(num);
-      // Create an object with the number as a string key and character code as the value
-      return { [String(num)]: charCode };
+  return s.map((num) => {
+    // Convert number to character code
+    let charCode = String.fromCharCode(num);
+    // Create an object with the number as a string key and character code as the value
+    return { [String(num)]: charCode };
   });
 }
 
@@ -237,7 +236,6 @@ const inputArray = [97, 98, 99]; // Corresponding to 'a', 'b', 'c'
 const result = numObj(inputArray);
 console.log(result); // Output: [ { '97': 'a' }, { '98': 'b' }, { '99': 'c' } ]
 
- 
 /*9 - https://www.codewars.com/kata/5827acd5f524dd029d0005a4
 You will be given an array of objects (associative arrays in PHP) representing data about developers who have signed up to attend the next coding meetup that you are organising.
 
@@ -259,21 +257,41 @@ Notes:
 The input array will always be valid and formatted as in the example above.*/
 
 function isRubyComing(list) {
-    // Use the some method to check if any developer's language is Ruby
-    return list.some(developer => developer.language === 'Ruby');
+  // Use the some method to check if any developer's language is Ruby
+  return list.some((developer) => developer.language === "Ruby");
 }
 
 // Example usage:
 var list1 = [
-  { firstName: 'Emma', lastName: 'Z.', country: 'Netherlands', continent: 'Europe', age: 29, language: 'Ruby' },
-  { firstName: 'Piotr', lastName: 'B.', country: 'Poland', continent: 'Europe', age: 128, language: 'Javascript' },
-  { firstName: 'Jayden', lastName: 'P.', country: 'Jamaica', continent: 'Americas', age: 42, language: 'JavaScript' }
+  {
+    firstName: "Emma",
+    lastName: "Z.",
+    country: "Netherlands",
+    continent: "Europe",
+    age: 29,
+    language: "Ruby",
+  },
+  {
+    firstName: "Piotr",
+    lastName: "B.",
+    country: "Poland",
+    continent: "Europe",
+    age: 128,
+    language: "Javascript",
+  },
+  {
+    firstName: "Jayden",
+    lastName: "P.",
+    country: "Jamaica",
+    continent: "Americas",
+    age: 42,
+    language: "JavaScript",
+  },
 ];
 
 console.log(isRubyComing(list1)); // Output: true
 
- 
- /*10 - https://www.codewars.com/kata/58279e13c983ca4a2a00002a
+/*10 - https://www.codewars.com/kata/58279e13c983ca4a2a00002a
  You will be given an array of objects (associative arrays in PHP, tables in COBOL) representing data about developers who have signed up to attend the next coding meetup that you are organising.
 
 Your task is to return an array where each object will have a new property 'greeting' with the following string value:
@@ -306,7 +324,7 @@ The order of the properties in the objects does not matter (except in COBOL).
 The input array will always be valid and formatted as in the example above.*/
 
 function greetDevelopers(list) {
-  list.forEach(developer => {
+  list.forEach((developer) => {
     developer.greeting = `Hi ${developer.firstName}, what do you like the most about ${developer.language}?`;
   });
   return list;
@@ -314,15 +332,35 @@ function greetDevelopers(list) {
 
 // Test case
 var list1 = [
-  { firstName: 'Sofia', lastName: 'I.', country: 'Argentina', continent: 'Americas', age: 35, language: 'Java' },
-  { firstName: 'Lukas', lastName: 'X.', country: 'Croatia', continent: 'Europe', age: 35, language: 'Python' },
-  { firstName: 'Madison', lastName: 'U.', country: 'United States', continent: 'Americas', age: 32, language: 'Ruby' }
+  {
+    firstName: "Sofia",
+    lastName: "I.",
+    country: "Argentina",
+    continent: "Americas",
+    age: 35,
+    language: "Java",
+  },
+  {
+    firstName: "Lukas",
+    lastName: "X.",
+    country: "Croatia",
+    continent: "Europe",
+    age: 35,
+    language: "Python",
+  },
+  {
+    firstName: "Madison",
+    lastName: "U.",
+    country: "United States",
+    continent: "Americas",
+    age: 32,
+    language: "Ruby",
+  },
 ];
 
 console.log(greetDevelopers(list1));
 
-
- /*12 - https://www.codewars.com/kata/57d001b405c186ccb6000304
+/*12 - https://www.codewars.com/kata/57d001b405c186ccb6000304
  An Ironman Triathlon is one of a series of long-distance triathlon races organized by the World Triathlon Corporaion (WTC). It consists of a 2.4-mile swim, a 112-mile bicycle ride and a marathon (26.2-mile) (run, raced in that order and without a break. It hurts... trust me.
 
 Your task is to take a distance that an athlete is through the race, and return one of the following:
@@ -346,35 +384,29 @@ function iTri(distance) {
   const remainingDistance = (totalDistance - distance).toFixed(2);
 
   if (distance === 0) {
-    return 'Starting Line... Good Luck!';
-  }
-  else if (distance < 2.4) {
-    return { 'Swim': `${remainingDistance} to go!` };
-  }
-  else if (distance < 2.4 + 112) {
-    return { 'Bike': `${remainingDistance} to go!` };
-  }
-  else if (distance < totalDistance - 10) {
-    return { 'Run': `${remainingDistance} to go!` };
-  }
-  else if (distance <= totalDistance) {
-    return { 'Run': 'Nearly there!' };
-  }
-  else {
+    return "Starting Line... Good Luck!";
+  } else if (distance < 2.4) {
+    return { Swim: `${remainingDistance} to go!` };
+  } else if (distance < 2.4 + 112) {
+    return { Bike: `${remainingDistance} to go!` };
+  } else if (distance < totalDistance - 10) {
+    return { Run: `${remainingDistance} to go!` };
+  } else if (distance <= totalDistance) {
+    return { Run: "Nearly there!" };
+  } else {
     return "You're done! Stop running!";
   }
 }
 
 // Test cases
-console.log(iTri(0));                   // Starting Line... Good Luck!
-console.log(iTri(1.5));                 // { Swim: '138.10 to go!' }
-console.log(iTri(2.4));                 // { Bike: '136.00 to go!' }
-console.log(iTri(50));                  // { Bike: '90.60 to go!' }
-console.log(iTri(114.4));               // { Run: '24.20 to go!' }
-console.log(iTri(131));                 // { Run: '10.00 to go!' }
-console.log(iTri(132));                 // { Run: 'Nearly there!' }
-console.log(iTri(140.6));              
-
+console.log(iTri(0)); // Starting Line... Good Luck!
+console.log(iTri(1.5)); // { Swim: '138.10 to go!' }
+console.log(iTri(2.4)); // { Bike: '136.00 to go!' }
+console.log(iTri(50)); // { Bike: '90.60 to go!' }
+console.log(iTri(114.4)); // { Run: '24.20 to go!' }
+console.log(iTri(131)); // { Run: '10.00 to go!' }
+console.log(iTri(132)); // { Run: 'Nearly there!' }
+console.log(iTri(140.6));
 
 /*13 -  https://www.codewars.com/kata/5836dce6966f8d1d43000007
 Program channels into your TV's memory. An array with channels (strings) will be passed as an argument to the function redarr(). Sort the channels in an alphabetical order, remove duplicates and, finally, return an object where each channel (object's value) is assigned to a whole number (objects's key), starting with 0.
@@ -388,7 +420,7 @@ redarr(arr) // returns {"0":"BBC1", "1":"BBC2", "2":"MTV"}
 var arr = ["BBC1", "BBC1", "BBC2", "MTV"];
 
 redarr(arr) // returns {"0":"BBC1", "1":"BBC2", "2":"MTV"}*/
- 
+
 function redarr(arr) {
   arr = arr.sort();
   arr = Array.from(new Set(arr));
@@ -397,9 +429,8 @@ function redarr(arr) {
     result[index] = channel;
   });
   return result;
-
 }
- /*14 - https://www.codewars.com/kata/599db0a227ca9f294b0000c8
+/*14 - https://www.codewars.com/kata/599db0a227ca9f294b0000c8
  It's important day today: the class has just had a math test. You will be given a list of marks. Complete the function that will:
 
 Calculate the average mark of the whole class and round it to 3 decimal places.
@@ -409,8 +440,6 @@ Examples
 [10, 9, 9, 10, 9, 10, 9] ==> [9.429, {'h': 7, 'a': 0, 'l': 0}, 'They did well']
 
 [5, 6, 4, 8, 9, 8, 9, 10, 10, 10] ==> [7.9, {'h': 5, 'a': 2, 'l': 3}]*/
-
-  
 
 /*15 - www.codewars.com/kata/57ed4cef7b45ef8774000014
 
