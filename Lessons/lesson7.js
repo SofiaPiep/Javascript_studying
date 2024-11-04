@@ -431,19 +431,80 @@ function redarr(arr) {
   return result;
 }
 /*14 - https://www.codewars.com/kata/599db0a227ca9f294b0000c8
- It's important day today: the class has just had a math test. You will be given a list of marks. Complete the function that will:
+ It's important day today: the class has just had a math test. 
+ You will be given a list of marks. Complete the function that will:
 
 Calculate the average mark of the whole class and round it to 3 decimal places.
-Make a dictionary/hash with keys "h", "a", "l" to make clear how many high, average and low marks they got. High marks are 9 & 10, average marks are 7 & 8, and low marks are 1 to 6.
-Return list [class_average, dictionary] if there are different type of marks, or [class_average, dictionary, "They did well"] if there are only high marks.
+Make a dictionary/hash with keys "h", "a", "l" to make clear how many high, 
+average and low marks they got. High marks are 9 & 10, average marks are 7 & 8, and low marks are 1 to 6.
+Return list [class_average, dictionary] if there are different type of marks, 
+or [class_average, dictionary, "They did well"] if there are only high marks.
 Examples
 [10, 9, 9, 10, 9, 10, 9] ==> [9.429, {'h': 7, 'a': 0, 'l': 0}, 'They did well']
 
 [5, 6, 4, 8, 9, 8, 9, 10, 10, 10] ==> [7.9, {'h': 5, 'a': 2, 'l': 3}]*/
 
-/*15 - www.codewars.com/kata/57ed4cef7b45ef8774000014
+function testResult(marks) {
+    
+  let total = marks.reduce((sum, mark) => sum + mark, 0);
+  let classAverage = parseFloat((total / marks.length).toFixed(3));
 
-Креативное задание*:
+  
+  let categories = { h: 0, a: 0, l: 0 };
+  for (let mark of marks) {
+      if (mark >= 9) {
+          categories.h += 1;
+      } else if (mark >= 7) {
+          categories.a += 1;
+      } else {
+          categories.l += 1;
+      }
+  }
+
+ 
+  let result = [classAverage, categories];
+  if (categories.a === 0 && categories.l === 0) {
+      result.push("They did well");
+  }
+
+  return result;
+}
+
+/*15 - www.codewars.com/kata/57ed4cef7b45ef8774000014*/
+
+function boredom(staff){
+  
+  const departmentScore = {
+    "accounts":1,
+    "finance": 2,
+    "canteen": 10,
+    "regulation":3,
+    "trading": 6,
+    "change": 6,
+     "IS": 8,
+     "retail": 5,
+      "cleaning": 4,
+      "pissing about": 25,
+  };
+  let score = 0;
+  for (let person in staff) {
+    let department = staff[person];
+    score += departmentScore[department] || 0;
+  }
+  if (score <= 80) {
+        return "kill me now";
+    } else if (score < 100) {
+        return "i can handle this";
+    } else {
+        return "party time!!";
+    }
+  
+}
+
+/*Креативное задание*:
 Создайте объект,
-где будет храниться информация по кофе и выведите ее в консоль( вид кофе, цена, ингредиенты …). Подумайте, возможно ли хранить данные на все виды кофе в одном объекте или в разных, что более удобно в дальнейшем использовании.
+где будет храниться информация по кофе и выведите ее в консоль( вид кофе, цена, ингредиенты …). 
+Подумайте, возможно ли хранить данные на все виды кофе в одном объекте или в разных, 
+что более удобно в дальнейшем использовании.
 Проверьте файл с кофе на наличие функций. Они нам понадобятся для следующего урока*/
+//Решение см.lesson5
